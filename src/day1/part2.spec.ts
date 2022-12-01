@@ -1,14 +1,23 @@
-import part2, { somethingElse } from './part2';
+import part2 from "./part2";
 
-describe('day1/part2', () => {
-  it('should work out the result', () => {
-    const input = [];
-    expect(part2(input)).toEqual(0);
-  });
-});
-describe('day1/somethingElse', () => {
-  it('should work out something', () => {
-    const input = 0;
-    expect(somethingElse(input)).toEqual(0);
+describe("day1/part2", () => {
+  it("should work out the most amount of calories being carried by the top 3 elfs", () => {
+    const input = [
+      1000,
+      2000,
+      3000,
+      null,
+      4000,
+      null,
+      5000,
+      6000,
+      null,
+      7000,
+      8000,
+      9000,
+      null,
+      10000,
+    ];
+    expect(part2(input)).toEqual(45_000);
   });
 });
