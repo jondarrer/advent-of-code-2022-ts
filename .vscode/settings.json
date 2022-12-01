@@ -1,0 +1,30 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[handlebars]": {
+    "editor.formatOnSave": false
+  },
+  "editor.tabSize": 2,
+  "javascript.validate.enable": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#1f1f45",
+    "activityBar.activeBorder": "#9a4545",
+    "activityBar.background": "#1f1f45",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#9a4545",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#0f0f22",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#1f1f45",
+    "titleBar.activeBackground": "#0f0f22",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#0f0f2299",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "sash.hoverBorder": "#1f1f45",
+    "statusBarItem.remoteBackground": "#0f0f22",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799"
+  },
+  "peacock.color": "#0f0f22"
+}
