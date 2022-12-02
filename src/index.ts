@@ -6,7 +6,7 @@ import {
   fileReadHandler as day2FileReadHandler,
   part1 as day2part1,
   part2 as day2part2,
-} from './day2';
+} from "./day2";
 import {
   fileReadHandler as day1FileReadHandler,
   part1 as day1part1,
@@ -14,16 +14,16 @@ import {
 } from "./day1";
 
 // challenges by day
-  '2': {
-    fileReadHandler: day2FileReadHandler,
-    '1': day2part1,
-    '2': day2part2,
-  },
 const challenges = {
   "1": {
     fileReadHandler: day1FileReadHandler,
     "1": day1part1,
     "2": day1part2,
+  },
+  "2": {
+    fileReadHandler: day2FileReadHandler,
+    "1": day2part1,
+    "2": day2part2,
   },
 };
 
