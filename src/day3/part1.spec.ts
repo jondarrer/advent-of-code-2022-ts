@@ -1,14 +1,183 @@
-import part1, { somethingElse } from './part1';
+import part1, { itemToPriority } from "./part1";
 
-describe('day3/part1', () => {
-  it('should work out the result', () => {
-    const input = [];
-    expect(part1(input)).toEqual(0);
+describe("day3/part1", () => {
+  it("should work out the result", () => {
+    const input = [
+      [
+        "v",
+        "J",
+        "r",
+        "w",
+        "p",
+        "W",
+        "t",
+        "w",
+        "J",
+        "g",
+        "W",
+        "r",
+        "h",
+        "c",
+        "s",
+        "F",
+        "M",
+        "M",
+        "f",
+        "F",
+        "F",
+        "h",
+        "F",
+        "p",
+      ],
+      [
+        "j",
+        "q",
+        "H",
+        "R",
+        "N",
+        "q",
+        "R",
+        "j",
+        "q",
+        "z",
+        "j",
+        "G",
+        "D",
+        "L",
+        "G",
+        "L",
+        "r",
+        "s",
+        "F",
+        "M",
+        "f",
+        "F",
+        "Z",
+        "S",
+        "r",
+        "L",
+        "r",
+        "F",
+        "Z",
+        "s",
+        "S",
+        "L",
+      ],
+      [
+        "P",
+        "m",
+        "m",
+        "d",
+        "z",
+        "q",
+        "P",
+        "r",
+        "V",
+        "v",
+        "P",
+        "w",
+        "w",
+        "T",
+        "W",
+        "B",
+        "w",
+        "g",
+      ],
+      [
+        "w",
+        "M",
+        "q",
+        "v",
+        "L",
+        "M",
+        "Z",
+        "H",
+        "h",
+        "H",
+        "M",
+        "v",
+        "w",
+        "L",
+        "H",
+        "j",
+        "b",
+        "v",
+        "c",
+        "j",
+        "n",
+        "n",
+        "S",
+        "B",
+        "n",
+        "v",
+        "T",
+        "Q",
+        "F",
+        "n",
+      ],
+      [
+        "t",
+        "t",
+        "g",
+        "J",
+        "t",
+        "R",
+        "G",
+        "J",
+        "Q",
+        "c",
+        "t",
+        "T",
+        "Z",
+        "t",
+        "Z",
+        "T",
+      ],
+      [
+        "C",
+        "r",
+        "Z",
+        "s",
+        "J",
+        "s",
+        "P",
+        "P",
+        "Z",
+        "s",
+        "G",
+        "z",
+        "w",
+        "w",
+        "s",
+        "L",
+        "w",
+        "L",
+        "m",
+        "p",
+        "w",
+        "M",
+        "D",
+        "w",
+      ],
+    ];
+    expect(part1(input)).toEqual(157);
   });
 });
-describe('day3/somethingElse', () => {
-  it('should work out something', () => {
-    const input = 0;
-    expect(somethingElse(input)).toEqual(0);
+describe("day3/itemToPriority", () => {
+  it("should work out the priority for a item 'a'", () => {
+    const input = "a";
+    expect(itemToPriority(input)).toEqual(1);
+  });
+  it("should work out the priority for a item 'z'", () => {
+    const input = "z";
+    expect(itemToPriority(input)).toEqual(26);
+  });
+  it("should work out the priority for a item 'A'", () => {
+    const input = "A";
+    expect(itemToPriority(input)).toEqual(27);
+  });
+  it("should work out the priority for a item 'Z'", () => {
+    const input = "Z";
+    expect(itemToPriority(input)).toEqual(52);
   });
 });
