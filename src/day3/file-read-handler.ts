@@ -1,5 +1,8 @@
-const fileReadHandler = (accumulator: Array<string>, line: string): void => {
-  accumulator.push(line);
+const fileReadHandler = (
+  accumulator: Array<Array<string>>,
+  line: string
+): void => {
+  accumulator.push(line.split(""));
 };
 
 export default fileReadHandler;
