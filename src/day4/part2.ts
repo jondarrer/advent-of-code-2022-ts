@@ -9,8 +9,6 @@ const part2 = (input: Array<Array<Array<number>>>): number => {
       oneRangeContainsTheOther(input[i][0], input[i][1])
     ) {
       pairedRangesOverlapping++;
-    } else {
-      console.log(input[i][0], input[i][1]);
     }
   }
 
