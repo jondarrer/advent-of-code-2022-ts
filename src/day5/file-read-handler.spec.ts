@@ -26,6 +26,6 @@ describe("day5/file-read-handler", () => {
       [2, 2, 1],
       [1, 1, 2],
     ];
-    expect(accumulator[0]).toEqual(result);
+    expect(accumulator).toEqual([result]);
   });
 });

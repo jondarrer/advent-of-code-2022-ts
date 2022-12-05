@@ -1,6 +1,6 @@
 import { SupplyStacks } from "./supply-stacks";
 
-const rearrangementProcedureRegex = /move (\d) from (\d) to (\d)/;
+const rearrangementProcedureRegex = /move (\d+) from (\d+) to (\d+)/;
 
 const fileReadHandler = (
   accumulator: Array<SupplyStacks>,

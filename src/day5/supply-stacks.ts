@@ -1,4 +1,4 @@
 export class SupplyStacks {
-  stacks: Array<Array<string>>;
-  rearrangementProcedures: Array<Array<number>>;
+  stacks: Array<Array<string>> = [];
+  rearrangementProcedures: Array<Array<number>> = [];
 }
