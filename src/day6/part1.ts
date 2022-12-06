@@ -4,7 +4,6 @@ const part1 = ([chars]: Array<string>): number => {
     const repeatedCharPosition = positionOfFirstRepeatedChar(
       chars.substring(i, i + 4)
     );
-    console.log(chars.substring(i, i + 4), repeatedCharPosition);
     if (repeatedCharPosition === -1) {
       return i + 4;
     }
