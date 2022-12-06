@@ -1,6 +1,17 @@
-const part2 = (input: Array<string>): number => 0;
+import { positionOfFirstRepeatedChar } from "./part1";
 
-const somethingElse = (arg: number): number => 0;
+const part2 = ([chars]: Array<string>): number => {
+  let i = 0;
+  while (i < chars.length) {
+    const repeatedCharPosition = positionOfFirstRepeatedChar(
+      chars.substring(i, i + 14)
+    );
+    console.log(chars.substring(i, i + 14), repeatedCharPosition);
+    if (repeatedCharPosition === -1) {
+      return i + 14;
+    }
+    i += repeatedCharPosition + 1;
+  }
+};
 
 export default part2;
-export { somethingElse };

@@ -1,14 +1,24 @@
-import part2, { somethingElse } from './part2';
+import part2 from "./part2";
 
-describe('day6/part2', () => {
-  it('should work out the result', () => {
-    const input = [];
-    expect(part2(input)).toEqual(0);
+describe("day6/part2", () => {
+  it("should work out the start-of-message marker to be 19", () => {
+    const input = ["mjqjpqmgbljsphdztnvjfqwrcgsmlb"];
+    expect(part2(input)).toEqual(19);
   });
-});
-describe('day6/somethingElse', () => {
-  it('should work out something', () => {
-    const input = 0;
-    expect(somethingElse(input)).toEqual(0);
+  it("should work out the start-of-message marker to be 23", () => {
+    const input = ["bvwbjplbgvbhsrlpgdmjqwftvncz"];
+    expect(part2(input)).toEqual(23);
+  });
+  it("should work out the start-of-message marker to be 23", () => {
+    const input = ["nppdvjthqldpwncqszvftbrmjlhg"];
+    expect(part2(input)).toEqual(23);
+  });
+  it("should work out the start-of-message marker to be 29", () => {
+    const input = ["nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"];
+    expect(part2(input)).toEqual(29);
+  });
+  it("should work out the start-of-message marker to be 26", () => {
+    const input = ["zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"];
+    expect(part2(input)).toEqual(26);
   });
 });
