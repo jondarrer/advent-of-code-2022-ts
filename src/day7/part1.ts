@@ -1,6 +1,6 @@
-const part1 = (input: Array<string>): number => 0;
+const part1 = (input: Array<object>): number => 0;
 
-const somethingElse = (arg: number): number => 0;
+const buildTree = (cmdsAndOutput: Array<object>): Array<object> => [];
 
 export default part1;
-export { somethingElse };
+export { buildTree };
