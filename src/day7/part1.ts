@@ -1,32 +1,42 @@
-const part1 = (input: Array<object>): number => 0;
+import {
+  CommandOrOutput,
+  CommandType,
+  FileSystemItem,
+  FileType,
+} from "./types";
 
-export enum FileType {
-  Dir = "dir",
-  File = "file",
-}
+const part1 = (input: Array<CommandOrOutput>): number => {
+  const fileSystem = buildFileSystemCmdsAndOutput(input);
+  const dirSizes = calculateDirSizes(fileSystem);
+  let totalSize = 0;
 
-export type FileSystemItem = {
-  type: FileType;
-  path: string;
-  size: number;
+  for (let size of dirSizes.values()) {
+    if (size <= 100_000) {
+      totalSize += size;
+    }
+  }
+
+  return totalSize;
 };
 
 const buildFileSystemCmdsAndOutput = (
-  cmdsAndOutput: Array<any>
+  cmdsAndOutput: Array<CommandOrOutput>
 ): Array<FileSystemItem> => {
   const currentDirPath: Array<string> = [];
-  const fileSystem: Array<FileSystemItem> = [];
+  const fileSystem: Array<FileSystemItem> = [
+    { fileType: FileType.Dir, path: "/", size: undefined },
+  ];
   for (let i = 0; i < cmdsAndOutput.length; i++) {
     const cmdOrOutput = cmdsAndOutput[i];
-    switch (cmdOrOutput.hasOwnProperty("cmd") ? cmdOrOutput.cmd : "output") {
-      case "cd":
-        changeDir(cmdOrOutput.args, currentDirPath);
+    switch (cmdOrOutput.type) {
+      case "cmd":
+        if (cmdOrOutput.cmd === CommandType.ChangeDir) {
+          changeDir(cmdOrOutput.args, currentDirPath);
+        }
         break;
-      case "ls":
-        break;
-      default:
+      case "output":
         addToFileSystem(
-          cmdOrOutput.type,
+          cmdOrOutput.fileType,
           cmdOrOutput.name,
           cmdOrOutput.size,
           currentDirPath,
@@ -57,14 +67,14 @@ const changeDir = (dirName, currentDirPath: Array<string>) => {
 };
 
 const addToFileSystem = (
-  type: FileType,
+  fileType: FileType,
   name: string,
   size: number,
   currentDirPath: Array<string>,
   fileSystem: Array<FileSystemItem>
 ) => {
   fileSystem.push({
-    type,
+    fileType,
     path: `${
       currentDirPath.length === 0
         ? ""
@@ -74,5 +84,55 @@ const addToFileSystem = (
   });
 };
 
+const calculateDirSizes = (
+  fileSystem: Array<FileSystemItem>
+): Map<string, number> => {
+  const dirSizes = new Map<string, number>();
+
+  for (let i = 0; i < fileSystem.length; i++) {
+    const fileSystemItem = fileSystem[i];
+    if (fileSystemItem.fileType === FileType.File) {
+      const parentDirPaths = getParentDirPaths(
+        fileSystemItem.path.substring(0, fileSystemItem.path.lastIndexOf("/"))
+      );
+
+      for (let j = 0; j < parentDirPaths.length; j++) {
+        const dirPath = parentDirPaths[j];
+        if (!dirSizes.has(dirPath)) {
+          dirSizes.set(dirPath, 0);
+        }
+        const previousSize = dirSizes.get(dirPath);
+        dirSizes.set(dirPath, (previousSize || 0) + fileSystemItem.size);
+      }
+    }
+  }
+
+  return dirSizes;
+};
+
+const getParentDirPaths = (path: string): Array<string> => {
+  const parentDirPaths: Array<string> = [];
+  let parts: Array<string>;
+
+  if (path === "/") {
+    parts = [""];
+  } else {
+    parts = path.split("/");
+  }
+
+  let currentPath = [];
+  for (let i = 0; i < parts.length; i++) {
+    currentPath.push(parts[i]);
+    parentDirPaths.push(`${currentPath.join("/")}`);
+  }
+
+  return parentDirPaths;
+};
+
 export default part1;
-export { buildFileSystemCmdsAndOutput, changeDir, addToFileSystem };
+export {
+  buildFileSystemCmdsAndOutput,
+  changeDir,
+  addToFileSystem,
+  calculateDirSizes,
+};
