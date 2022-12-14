@@ -3,10 +3,20 @@ import fileReader from "./file-reader";
 
 // day imports
 import {
+  fileReadHandler as day10FileReadHandler,
+  part1 as day10part1,
+  part2 as day10part2,
+} from "./day10";
+import {
+  fileReadHandler as day9FileReadHandler,
+  part1 as day9part1,
+  part2 as day9part2,
+} from "./day9";
+import {
   fileReadHandler as day8FileReadHandler,
   part1 as day8part1,
   part2 as day8part2,
-} from './day8';
+} from "./day8";
 import {
   fileReadHandler as day7FileReadHandler,
   part1 as day7part1,
@@ -45,10 +55,20 @@ import {
 
 const challenges = {
   // challenges by day
-  '8': {
+  "10": {
+    fileReadHandler: day10FileReadHandler,
+    "1": day10part1,
+    "2": day10part2,
+  },
+  "9": {
+    fileReadHandler: day9FileReadHandler,
+    "1": day9part1,
+    "2": day9part2,
+  },
+  "8": {
     fileReadHandler: day8FileReadHandler,
-    '1': day8part1,
-    '2': day8part2,
+    "1": day8part1,
+    "2": day8part2,
   },
   "1": {
     fileReadHandler: day1FileReadHandler,
