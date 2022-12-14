@@ -8,9 +8,6 @@ const part1 = (input: Array<Command>): number => {
   for (let i = 0; i < input.length; i++) {
     performOperation(input[i], registryHistory);
   }
-  console.log({
-    registryHistory: registryHistory.slice(218, 222),
-  });
 
   for (let i = 0; i < cyclesToReportOn.length; i++) {
     const strength = calculateSignalStrength(
@@ -18,13 +15,6 @@ const part1 = (input: Array<Command>): number => {
       registryHistory
     );
     result = result + strength;
-    console.log({
-      cycleNo: cyclesToReportOn[i],
-      value: registryHistory[cyclesToReportOn[i]],
-      strength,
-      result,
-      length: registryHistory.length,
-    });
   }
 
   return result;
