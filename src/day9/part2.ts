@@ -19,7 +19,7 @@ const knotMotionSimulator = (moves: Array<Move>, noOfKnots: number): number => {
     // Move the head one step at a time
     for (let j = 0; j < move.amount; j++) {
       knots[headIndex] = moveHeadOneStep(knots[headIndex], move);
-      knots = moveTails(knots);
+      knots = moveKnots(knots);
       const serialisedTail = `${knots[tailIndex].x},${knots[tailIndex].y}`;
       if (!tailPositions.has(serialisedTail)) {
         tailPositions.add(serialisedTail);
@@ -30,7 +30,7 @@ const knotMotionSimulator = (moves: Array<Move>, noOfKnots: number): number => {
   return tailPositions.size;
 };
 
-const moveTails = (knots: Array<GridPosition>): Array<GridPosition> => {
+const moveKnots = (knots: Array<GridPosition>): Array<GridPosition> => {
   const movedKnots: Array<GridPosition> = [knots[0]];
 
   for (let i = 1; i < knots.length; i++) {
@@ -41,4 +41,4 @@ const moveTails = (knots: Array<GridPosition>): Array<GridPosition> => {
 };
 
 export default part2;
-export { moveTails };
+export { moveKnots };

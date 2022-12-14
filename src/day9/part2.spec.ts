@@ -1,4 +1,4 @@
-import part2, { moveTails } from "./part2";
+import part2, { moveKnots } from "./part2";
 import { Direction, GridPosition, Move } from "./types";
 
 describe("day9/part2", () => {
@@ -30,9 +30,9 @@ describe("day9/part2", () => {
     expect(part2(input)).toEqual(36);
   });
 });
-describe.skip("day9/moveTails", () => {
+describe.skip("day9/moveKnots", () => {
   it("should work out something", () => {
     const knots: Array<GridPosition> = [];
-    expect(moveTails(knots)).toEqual([]);
+    expect(moveKnots(knots)).toEqual([]);
   });
 });
