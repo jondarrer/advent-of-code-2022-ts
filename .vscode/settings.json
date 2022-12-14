@@ -26,5 +26,6 @@
     "statusBarItem.remoteForeground": "#e7e7e7",
     "commandCenter.border": "#e7e7e799"
   },
-  "peacock.color": "#0f0f22"
+  "peacock.color": "#0f0f22",
+  "cSpell.words": ["addx"]
 }
