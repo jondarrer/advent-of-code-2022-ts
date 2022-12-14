@@ -1,8 +1,4 @@
-import part1, {
-  moveHeadOneStep,
-  moveTail,
-  isHeadMoreThanOneStepFromTheTail,
-} from "./part1";
+import part1, { moveHeadOneStep, moveTail } from "./part1";
 import { Direction, GridPosition, Move } from "./types";
 
 describe("day9/part1", () => {
@@ -20,6 +16,7 @@ describe("day9/part1", () => {
     expect(part1(input)).toEqual(13);
   });
 });
+
 describe("day9/moveHeadOneStep", () => {
   it("should move one step from {0, 0} to {0, 1}", () => {
     // Arrange
@@ -127,72 +124,5 @@ describe("day9/moveTail", () => {
 
     // Act & Assert
     expect(moveTail(head, tail)).toEqual({ x: 4, y: 1 });
-  });
-});
-
-describe("day9/isHeadMoreThanOneStepFromTheTail", () => {
-  it("should work out head {0, 0} and tail {0, 0} are not far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 0, y: 0 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeFalsy();
-  });
-  it("should work out head {1, 0} and tail {0, 0} are not far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 1, y: 0 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeFalsy();
-  });
-  it("should work out head {2, 0} and tail {0, 0} are far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 2, y: 0 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeTruthy();
-  });
-  it("should work out head {1, 1} and tail {0, 0} are not far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 1, y: 1 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeFalsy();
-  });
-  it("should work out head {1, 2} and tail {0, 0} are far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 1, y: 2 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeTruthy();
-  });
-  it("should work out head {-1, -1} and tail {1, 1} are far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: -1, y: -1 };
-    const tail: GridPosition = { x: 1, y: 1 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeTruthy();
-  });
-  it("should work out head {1, 1} and tail {-1, -1} are far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: 1, y: 1 };
-    const tail: GridPosition = { x: -1, y: -1 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeTruthy();
-  });
-  it("should work out head {-1, -2} and tail {0, 0} are far apart", () => {
-    // Arrange
-    const head: GridPosition = { x: -1, y: -2 };
-    const tail: GridPosition = { x: 0, y: 0 };
-
-    // Act & Assert
-    expect(isHeadMoreThanOneStepFromTheTail(head, tail)).toBeTruthy();
   });
 });

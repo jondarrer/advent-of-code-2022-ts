@@ -8,14 +8,14 @@ const part1 = (input: Array<Move>): number => {
 
   for (let i = 0; i < input.length; i++) {
     const move = input[i];
+
+    // Move the head one step at a time
     for (let j = 0; j < move.amount; j++) {
       head = moveHeadOneStep(head, move);
-      if (isHeadMoreThanOneStepFromTheTail(head, tail)) {
-        tail = moveTail(head, tail);
-        const serialisedTail = `${tail.x},${tail.y}`;
-        if (!tailPositions.has(serialisedTail)) {
-          tailPositions.add(serialisedTail);
-        }
+      tail = moveTail(head, tail);
+      const serialisedTail = `${tail.x},${tail.y}`;
+      if (!tailPositions.has(serialisedTail)) {
+        tailPositions.add(serialisedTail);
       }
     }
   }
@@ -57,17 +57,11 @@ const moveTail = (head: GridPosition, tail: GridPosition): GridPosition => {
     // Move along y (either down or up)
     if (head.y < tail.y) return { x: tail.x, y: tail.y - 1 };
     else return { x: tail.x, y: tail.y + 1 };
-  } else {
-    throw new Error(
-      `Unexpected! head: ${head.x}, ${head.y} tail: ${tail.x}, ${tail.y}`
-    );
   }
+
+  // Don't move, just return tail as is
+  return tail;
 };
 
-const isHeadMoreThanOneStepFromTheTail = (
-  head: GridPosition,
-  tail: GridPosition
-): boolean => Math.abs(head.x - tail.x) > 1 || Math.abs(head.y - tail.y) > 1;
-
 export default part1;
-export { moveHeadOneStep, moveTail, isHeadMoreThanOneStepFromTheTail };
+export { moveHeadOneStep, moveTail };
